@@ -12,7 +12,13 @@
 			"include": "#choiseContext"
 		},
 		{
+			"include": "#keywordsCharaAttPara"
+		},
+		{
 			"include": "#keywords"
+		},
+		{
+			"include": "#keywordsCharaName"
 		},
 		{
 			"include": "#keywordsPara"
@@ -42,6 +48,17 @@
 			"begin": "(?<==|,)",
       		"end": "(?=;|<|>|,|\n)"
 		},
+		"keywordsCharaAttPara": {
+			"name": "storage.otks",
+			"begin": "(?<=in *= *|out *= *|face *= *|mask01 *= *|wiggle *= *|acteff *= *|emo *= *|light *= *)",
+      		"end": "(?=;|<|>|,|\n)"
+		},
+		"keywordsCharaName": {
+			"name": "variable.other.event.otks",
+			"begin": "(?<=actor *=|, *)",
+      		"end": "(?=;|<|>|,|\n)"
+		},
+
 		"choise": {
 			"patterns": [{
 				"name": "keyword.control.otks.otks",
@@ -50,7 +67,7 @@
 		},
 		"choiseContext": {
 			"patterns": [{
-				"name": "variable.other.event.otks",
+				"name": "support.function.otks",
 				"begin": "(?<=(q1 *=|q2 *=|q1out *=|q2out *=|<a1> *|<a2> *))",
 				"end": "(?=(\n|;))"
 			}]
