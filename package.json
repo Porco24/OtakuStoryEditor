@@ -1,0 +1,25 @@
+{
+    "name": "otks",
+    "displayName": "otks",
+    "description": "Otaku stroy editor",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.45.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "otks",
+            "aliases": ["OutakuStory", "otks"],
+            "extensions": [".otks"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "otks",
+            "scopeName": "source.otks",
+            "path": "./syntaxes/otks.tmLanguage.json"
+        }]
+    }
+}

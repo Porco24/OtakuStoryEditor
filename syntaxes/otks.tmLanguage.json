@@ -1,0 +1,72 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "OutakuStory",
+	"patterns": [
+		{
+			"include": "#note"
+		},
+		{
+			"include": "#choise"
+		},
+		{
+			"include": "#choiseContext"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#keywordsPara"
+		},
+		{
+			"include": "#textKeywords"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"note": {
+			"patterns": [{
+				"name": "support.function",
+				"match": "\\b(note|storyNote)\\b"
+			}]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "entity.name.type.otks",
+				"match": "\\b(actor|in|out|face|mask|wiggle|acteff|emo|light|bgeff|bgse|actorse|bgm|se|emose|type|icon|name|vc|过场|BG)\\b"
+			}]
+		},
+		"keywordsPara": {
+			"name": "storage.otks",
+			"begin": "(?<==|,)",
+      		"end": "(?=;|<|>|,|\n)"
+		},
+		"choise": {
+			"patterns": [{
+				"name": "keyword.control.otks.otks",
+				"match": "\\b(q1|a1|q2|a2|q1out|q2out)\\b"
+			}]
+		},
+		"choiseContext": {
+			"patterns": [{
+				"name": "variable.other.event.otks",
+				"begin": "(?<=(q1 *=|q2 *=|q1out *=|q2out *=|<a1> *|<a2> *))",
+				"end": "(?=(\n|;))"
+			}]
+		},
+		"textKeywords": {
+			"patterns": [{
+				"name": "keyword.control.otks",
+				"match": "文本"
+			}]
+		},
+		
+		"strings": {
+			"name": "string.otks",
+			"begin": "(?<=文本: *)",
+      		"end": "(?=(\n|;))"
+		}
+	},
+	"scopeName": "source.otks"
+}
