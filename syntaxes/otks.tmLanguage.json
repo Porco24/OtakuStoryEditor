@@ -6,6 +6,9 @@
 			"include": "#note"
 		},
 		{
+			"include": "#notePara"
+		},
+		{
 			"include": "#choise"
 		},
 		{
@@ -37,6 +40,13 @@
 				"match": "\\b(note|storyNote)\\b"
 			}]
 		},
+		"notePara": {
+			"patterns": [{
+				"name": "string.function",
+				"begin": "(?<=note *=|storyNote *=)",
+				  "end": "(?=(;|<|>|,|\n))"
+			}]
+		},
 		"keywords": {
 			"patterns": [{
 				"name": "entity.name.type.otks",
@@ -45,7 +55,7 @@
 		},
 		"keywordsPara": {
 			"name": "storage.otks",
-			"begin": "(?<==|,)",
+			"begin": "(?<== *| *, *)",
       		"end": "(?=;|<|>|,|\n)"
 		},
 		"keywordsCharaAttPara": {
