@@ -37,7 +37,7 @@
 		"note": {
 			"patterns": [{
 				"name": "support.function",
-				"match": "\\b(note|storyNote)\\b"
+				"match": "\\b(note|storyNote|likability)\\b"
 			}]
 		},
 		"notePara": {
@@ -50,18 +50,12 @@
 		"keywords": {
 			"patterns": [{
 				"name": "entity.name.type.otks",
-				"match": "\\b(actor|in|out|face|mask|wiggle|acteff|emo|light|bgeff|bgse|actorse|bgm|se|emose|type|icon|name|vc|过场|BG)\\b"
+				"match": "(?<=(^|;))(actor|se1|se2|bgm|se3|se4|type|icon|name|vc|过场|cutin|cutout|subtitle|shakepro|BGmove|BGeff|BGmask|BG|shake|delay|outse|TXTdelay|flash)"
 			}]
 		},
-		"keywordsPara": {
-			"name": "storage.otks",
-			"begin": "(?<== *| *, *)",
-      		"end": "(?=;|<|>|,|\n)"
-		},
 		"keywordsCharaAttPara": {
-			"name": "storage.otks",
-			"begin": "(?<=in *= *|out *= *|face *= *|mask01 *= *|wiggle *= *|acteff *= *|emo *= *|light *= *)",
-      		"end": "(?=;|<|>|,|\n)"
+			"name": "entity.name.type.otks",
+			"match": "((?<=<.*?)([in]|[out]|[face]|[mask]|[wiggle]|[acteff]|[emo]|[light]|[lagin]|[lagout])(?=.*?>))"
 		},
 		"keywordsCharaName": {
 			"name": "variable.other.event.otks",
@@ -69,16 +63,21 @@
       		"end": "(?=;|<|>|,|\n)"
 		},
 
+		"keywordsPara": {
+			"name": "storage.otks",
+			"begin": "(?<== *| *, *)",
+      		"end": "(?=;|<|>|,|\n)"
+		},
 		"choise": {
 			"patterns": [{
 				"name": "keyword.control.otks.otks",
-				"match": "\\b(q1|a1|q2|a2|q1out|q2out)\\b"
+				"match": "\\b(q1|a1|q2|q3|a2|a3|q1out|q2out|q3out)\\b"
 			}]
 		},
 		"choiseContext": {
 			"patterns": [{
 				"name": "support.function.otks",
-				"begin": "(?<=(q1 *=|q2 *=|q1out *=|q2out *=|<a1> *|<a2> *))",
+				"begin": "(?<=(q1 *=|q2 *=|q3 *=|q1out *=|q2out *=|q3out *=|<a1> *|<a2> *|<a3> *))",
 				"end": "(?=(\n|;))"
 			}]
 		},
