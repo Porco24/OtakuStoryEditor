@@ -3,6 +3,18 @@
 	"name": "OutakuStory",
 	"patterns": [
 		{
+			"include": "#BGmoveTime"
+		},
+		{
+			"include": "#BGmoveFirstPos"
+		},
+		{
+			"include": "#BGmoveEndPos"
+		},
+		{
+			"include": "#BGmovePic"
+		},
+		{
 			"include": "#note"
 		},
 		{
@@ -50,12 +62,12 @@
 		"keywords": {
 			"patterns": [{
 				"name": "entity.name.type.otks",
-				"match": "(?<=(^|;))(actor|se1|se2|bgm|se3|se4|type|icon|name|vc|过场|cutin|cutout|subtitle|BGeff|BGmask|BG|shake|delay)"
+				"match": "(?<=(^|;))(actor|se1|se2|bgm|se3|se4|type|icon|name|vc|过场|cutin|cutout|subtitle|shakepro|BGmove|BGeff|BGmask|BG|shake|delay|outse|TXTdelay|flash)"
 			}]
 		},
 		"keywordsCharaAttPara": {
 			"name": "entity.name.type.otks",
-			"match": "((?<=<.*?)([in]|[out]|[face]|[mask]|[wiggle]|[acteff]|[emo]|[light])(?=.*?>))"
+			"match": "((?<=<.*?)([in]|[out]|[face]|[mask]|[wiggle]|[acteff]|[emo]|[light]|[lagin]|[lagout])(?=.*?>))"
 		},
 		"keywordsCharaName": {
 			"name": "variable.other.event.otks",
@@ -85,6 +97,31 @@
 			"patterns": [{
 				"name": "keyword.control.otks",
 				"match": "文本"
+			}]
+		},
+
+		"BGmoveTime": {
+			"patterns": [{
+				"name": "string.regexp.otks",
+				"match": "(?<=(BGmove= *))(.|\n)*?(?=,)"
+			}]
+		},
+		"BGmoveFirstPos": {
+			"patterns": [{
+				"name": "comment.documentation.otks",
+				"match": "(?<=(BGmove= *[^,]*,))(.|\n)*?([^,]*,[^,]*[^,]*,[^,]*)"
+			}]
+		},
+		"BGmoveEndPos": {
+			"patterns": [{
+				"name": "string.regexp.otks",
+				"match": "(?<=(BGmove= *[^,],[^,],[^,],[^,],))(.|\n)*?([^,]*,[^,]*[^,]*,[^,])"
+			}]
+		},
+		"BGmovePic": {
+			"patterns": [{
+				"name": "comment.documentation.otks",
+				"match": "(?<=(BGmove= *[^,]*,[^,]*,[^,]*,[^,]*,[^,]*,[^,]*,[^,]*,))(.|\n)*?(?=(\n|;))"
 			}]
 		},
 		
