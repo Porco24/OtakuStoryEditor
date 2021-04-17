@@ -15,6 +15,12 @@
 			"include": "#BGmovePic"
 		},
 		{
+			"include": "#closeupImage"
+		},
+		{
+			"include": "#closeupType"
+		},
+		{
 			"include": "#note"
 		},
 		{
@@ -62,7 +68,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "entity.name.type.otks",
-				"match": "(?<=(^|;))(actor|se1|se2|bgm|se3|se4|type|icon|name|vc|过场|cutin|cutout|subtitle|shakepro|BGmove|BGeff|BGmask|BG|shake|delay|outse|TXTdelay|flash)"
+				"match": "(?<=(^|;))(actor|se1|se2|bgm|se3|se4|type|icon|name|vc|过场|cutinvideo|cutin|cutout|subtitle|shakepro|BGvideo|BGmove|BGeff2|BGeff3|BGeff|BGmask|BG|shake|delayeff|delay|outse|TXTdelay|flash|nocut|logue|closeup|talkwiggle)"
 			}]
 		},
 		"keywordsCharaAttPara": {
@@ -122,6 +128,19 @@
 			"patterns": [{
 				"name": "comment.documentation.otks",
 				"match": "(?<=(BGmove= *[^,]*,[^,]*,[^,]*,[^,]*,[^,]*,[^,]*,[^,]*,))(.|\n)*?(?=(\n|;))"
+			}]
+		},
+
+		"closeupImage": {
+			"patterns": [{
+				"name": "storage.otks",
+				"match": "(?<=(closeup= *))(.|\n)*?(?=,|;|\n)"
+			}]
+		},
+		"closeupType": {
+			"patterns": [{
+				"name": "string.regexp.otks",
+				"match": "(?<=(closeup= *[^,]*,))(.|\n)*?(?=;|\n)"
 			}]
 		},
 		
